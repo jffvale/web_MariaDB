@@ -1,0 +1,28 @@
+plugins {
+    id 'war'
+    id 'org.gretty' version '2.2.0' 
+    id 'java'
+    id 'application'   
+}
+
+mainClassName='controller.Start'
+repositories {
+	jcenter()
+	mavenCentral()
+}
+
+dependencies {
+    compile 'javax.servlet:javax.servlet-api:3.1.0'
+    compile 'javax.servlet:jstl:1.2'
+    implementation 'org.hibernate:hibernate-core:5.3.7.Final'
+    //MariaDB Connector/J is used to connect applications
+    // developed in Java to MariaDB and MySQL databases using
+    // the standard JDBC API. The client library is LGPL licensed.
+    implementation 'org.mariadb.jdbc:mariadb-java-client:2.2.0'
+}
+
+
+/* configuração do gretty pra usar tomcat*/
+gretty {
+  servletContainer = 'tomcat8'
+}
